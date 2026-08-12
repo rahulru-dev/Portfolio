@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rahul R U | Software Developer</title>
+  <meta name="description"
+    content="Rahul R U — Entry-level Software Developer with a foundation in Java, SQL, web development and application development." />
+  <meta name="theme-color" content="#0b0b0d" />
+
+  <script>
+    tailwind = {
+      config: {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              accent: "#ff6b2c",
+              ink: "#0b0b0d"
+            },
+            boxShadow: {
+              orange: "0 18px 55px rgba(255,107,44,.14)"
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0b0b0d;
+      --surface: #111114;
+      --card: #1a1a1d;
+      --card-hover: #232326;
+      --text: #f7f7f7;
+      --muted: #a1a1aa;
+      --border: rgba(255, 255, 255, .09);
+      --accent: #ff6b2c;
+      --accent-soft: rgba(255, 107, 44, .12);
+    }
+
+    html.light {
+      --bg: #f7f7f8;
+      --surface: #ffffff;
+      --card: #ffffff;
+      --card-hover: #f2f2f4;
+      --text: #18181b;
+      --muted: #66666f;
+      --border: rgba(24, 24, 27, .10);
+      --accent: #f45b1f;
+      --accent-soft: rgba(244, 91, 31, .10);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-padding-top: 92px;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      overflow-x: hidden;
+    }
+
+    .site-bg {
+      background:
+        radial-gradient(circle at 88% 18%, rgba(255, 107, 44, .08), transparent 26rem),
+        radial-gradient(circle at 10% 44%, rgba(255, 255, 255, .025), transparent 24rem),
+        var(--bg);
+    }
+
+    .glass-nav {
+      background: color-mix(in srgb, var(--bg) 88%, transparent);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(18px);
+    }
+
+    .section-surface {
+      background: var(--surface);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .nav-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .35rem;
+      padding: .62rem .9rem;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: .25s ease;
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover {
+      color: var(--text);
+      background: var(--accent-soft);
+      border-color: rgba(255, 107, 44, .18);
+      transform: translateY(-1px);
+    }
+
+    .nav-btn.active {
+      color: var(--text);
+      background: var(--accent-soft);
+      border-color: rgba(255, 107, 44, .48);
+      box-shadow: 0 8px 26px rgba(255, 107, 44, .12);
+    }
+
+    .nav-btn.active::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: -7px;
+      width: 5px;
+      height: 5px;
+      border-radius: 999px;
+      background: var(--accent);
+      transform: translateX(-50%);
+      box-shadow: 0 0 14px var(--accent);
+    }
+
+    .orange-btn {
+      background: var(--accent);
+      color: white;
+      transition: .25s ease;
+      box-shadow: 0 12px 30px rgba(255, 107, 44, .18);
+    }
+
+    .orange-btn:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+      box-shadow: 0 16px 36px rgba(255, 107, 44, .25);
+    }
+
+    .outline-btn {
+      border: 1px solid var(--border);
+      color: var(--text);
+      background: transparent;
+      transition: .25s ease;
+    }
+
+    .outline-btn:hover {
+      border-color: rgba(255, 107, 44, .55);
+      background: var(--accent-soft);
+      transform: translateY(-2px);
+    }
+
+    .pop-card {
+      transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease, background .35s ease;
+    }
+
+    .pop-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(255, 107, 44, .55);
+      background: var(--card-hover);
+      box-shadow: 0 22px 55px rgba(0, 0, 0, .20);
+    }
+
+    .image-wrap {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--card);
+    }
+
+    .image-wrap img {
+      transition: transform .5s ease;
+    }
+
+    .pop-card:hover .image-wrap img,
+    .image-wrap:hover img {
+      transform: scale(1.045);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .tech-pill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      background: color-mix(in srgb, var(--card) 82%, transparent);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: .42rem .7rem;
+      font-size: .75rem;
+      font-weight: 600;
+      transition: .2s ease;
+    }
+
+    .tech-pill:hover {
+      color: var(--text);
+      border-color: rgba(255, 107, 44, .5);
+      background: var(--accent-soft);
+      transform: translateY(-1px);
+    }
+
+    .section-label {
+      color: var(--accent);
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      font-size: .72rem;
+      font-weight: 800;
+    }
+
+    .hero-photo {
+      min-height: 440px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 14px var(--accent);
+    }
+
+    .toast {
+      transform: translateY(18px);
+      opacity: 0;
+      pointer-events: none;
+      transition: .3s ease;
+    }
+
+    .toast.show {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    @media (max-width: 767px) {
+      .hero-photo {
+        min-height: 340px;
+      }
+
+      .nav-btn.active::after {
+        display: none;
+      }
+    }
+  </style>
+
+  <script>
+    const savedTheme = localStorage.getItem("portfolio-theme");
+    const systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    if (savedTheme === "light" || (!savedTheme && !systemDark)) {
+      document.documentElement.classList.add("light");
+    }
+  </script>
+</head>
+
+<body class="site-bg antialiased">
+  <!-- NAVBAR -->
+  <header class="glass-nav fixed top-0 left-0 right-0 z-50">
+    <div class="max-w-7xl mx-auto px-5 sm:px-7 py-3.5">
+      <div class="flex items-center justify-between gap-4">
+        <a href="#home" class="text-xl font-extrabold tracking-tight shrink-0">
+          <span style="color:var(--accent)"></span>
+        </a>
+
+        <nav id="desktop-nav" class="hidden lg:flex items-center gap-1">
+          <a class="nav-btn" href="#home" data-nav="home">Home</a>
+          <a class="nav-btn" href="#skills" data-nav="skills">Skills</a>
+          <a class="nav-btn" href="#projects" data-nav="projects">Projects</a>
+          <a class="nav-btn" href="#internships" data-nav="internships">Internships</a>
+          <a class="nav-btn" href="#about" data-nav="about">About</a>
+          <a class="nav-btn" href="#education" data-nav="education">Education</a>
+          <a class="nav-btn" href="#certifications" data-nav="certifications">Certifications</a>
+          <a class="nav-btn" href="#contact" data-nav="contact">Contact</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <button id="theme-toggle" type="button" aria-label="Switch theme"
+            class="w-10 h-10 rounded-full border flex items-center justify-center transition hover:-translate-y-0.5"
+            style="border-color:var(--border);color:var(--text);background:var(--card)">
+            <span id="theme-icon">☼</span>
+          </button>
+
+          <a href="#contact"
+            class="hidden sm:inline-flex orange-btn items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold">
+            Reach me <span>→</span>
+          </a>
+
+          <button id="mobile-toggle" type="button" aria-label="Open navigation"
+            class="lg:hidden w-10 h-10 rounded-full border flex items-center justify-center"
+            style="border-color:var(--border);color:var(--text);background:var(--card)">
+            ☰
+          </button>
+        </div>
+      </div>
+
+      <nav id="mobile-nav" class="hidden lg:hidden pt-3 pb-2 flex-col gap-1">
+        <a class="nav-btn justify-start" href="#home" data-nav="home">Home</a>
+        <a class="nav-btn justify-start" href="#skills" data-nav="skills">Skills</a>
+        <a class="nav-btn justify-start" href="#projects" data-nav="projects">Projects</a>
+        <a class="nav-btn justify-start" href="#internships" data-nav="internships">Internships</a>
+        <a class="nav-btn justify-start" href="#about" data-nav="about">About</a>
+        <a class="nav-btn justify-start" href="#education" data-nav="education">Education</a>
+        <a class="nav-btn justify-start" href="#certifications" data-nav="certifications">Certifications</a>
+        <a class="nav-btn justify-start" href="#contact" data-nav="contact">Contact</a>
+        <a href="#contact" class="orange-btn text-center rounded-full px-5 py-3 text-sm font-bold mt-2">Reach me →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section id="home" data-section class="min-h-screen pt-32 pb-20">
+      <div class="max-w-7xl mx-auto px-5 sm:px-7 grid lg:grid-cols-[1.05fr_.95fr] gap-12 lg:gap-20 items-center">
+        <div class="reveal">
+          <div class="inline-flex items-center gap-2 rounded-full border px-3.5 py-2 mb-7 text-xs font-bold"
+            style="border-color:rgba(255,107,44,.28);background:var(--accent-soft);color:var(--accent)">
+            <span class="status-dot"></span>
+            AVAILABLE FOR OPPORTUNITIES
+          </div>
+
+          <h1 class="text-5xl sm:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[.98]">
+            Hi, I'm <span style="color:var(--accent)">Rahul R U</span>
+          </h1>
+
+          <p class="mt-7 text-lg sm:text-xl leading-8 muted max-w-2xl">
+            Entry-level <strong style="color:var(--text)">Software Developer</strong> and <strong
+              style="color:var(--text)">B.E. Computer Science &
+              Engineering</strong> graduate, passionate about building clean, scalable, and user-focused applications. I
+            work with
+            Java, SQL, and modern web technologies to turn ideas into structured, practical solutions.
+
+          <div class="mt-9 flex flex-wrap gap-3">
+            <a href="#projects" class="orange-btn rounded-full px-6 py-3.5 text-sm font-bold">
+              View My Projects <span class="ml-1">→</span>
+            </a>
+            <a href="#contact" class="outline-btn rounded-full px-6 py-3.5 text-sm font-bold">
+              Reach Me
+            </a>
+          </div>
+
+          <div class="mt-12 pt-7 border-t max-w-xl grid grid-cols-3 gap-6" style="border-color:var(--border)">
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold">2+</p>
+              <p class="text-xs sm:text-sm muted mt-1">Internships</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold">2</p>
+              <p class="text-xs sm:text-sm muted mt-1">Projects</p>
+            </div>
+            <div>
+              <p class="text-2xl sm:text-3xl font-extrabold">5</p>
+              <p class="text-xs sm:text-sm muted mt-1">Certifications</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal relative">
+          <!-- Replace assets/profile.jpg with your own photo -->
+          <div class="hero-photo image-wrap rounded-[2rem] relative">
+            <img src="assets/Rahul R U.png"
+              onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=85'"
+              alt="Rahul R U professional portrait" class="w-full h-full absolute inset-0 object-cover" />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent pointer-events-none">
+            </div>
+            <div class="absolute left-5 bottom-5 rounded-2xl px-4 py-3 text-white font-bold text-sm"
+              style="background:var(--accent)">
+              Open to opportunities →
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" data-section class="section-surface border-y" style="border-color:var(--border)">
+      <div class="max-w-7xl mx-auto px-5 sm:px-7 py-24">
+        <div class="reveal">
+          <p class="section-label mb-2">What I know</p>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Technical Skills</h2>
+          <p class="muted mt-4 max-w-2xl">A practical foundation across programming, databases, web development and
+            software engineering fundamentals.</p>
+        </div>
+
+        <div class="mt-12 grid md:grid-cols-2 xl:grid-cols-4 gap-6">
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-44 rounded-none border-0 border-b">
+              <img src="assets/Programming.avif" alt="Programming and technology workspace"
+                class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <p class="section-label mb-3">01</p>
+              <h3 class="text-xl font-bold">Programming & Technologies</h3>
+              <p class="muted text-sm leading-6 mt-3">Java, SQL, HTML, CSS, JavaScript</p>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-44 rounded-none border-0 border-b">
+              <img src="assets/Tools.webp" alt="Software development code on screen" class="w-full h-full object-cover"
+                loading="lazy" />
+            </div>
+            <div class="p-6">
+              <p class="section-label mb-3">02</p>
+              <h3 class="text-xl font-bold">Development Tools</h3>
+              <p class="muted text-sm leading-6 mt-3">Eclipse IDE, VS Code, MySQL Workbench, GitHub, MS Office</p>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-44 rounded-none border-0 border-b">
+              <img src="assets/Core.avif" alt="Software planning and database design" class="w-full h-full object-cover"
+                loading="lazy" />
+            </div>
+            <div class="p-6">
+              <p class="section-label mb-3">03</p>
+              <h3 class="text-xl font-bold">Core Competencies</h3>
+              <p class="muted text-sm leading-6 mt-3">Object-Oriented Programming, JDBC, Database Design, SDLC, Agile
+                Methodology</p>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-44 rounded-none border-0 border-b">
+              <img src="assets/softskills.avif" alt="Team collaboration" class="w-full h-full object-cover"
+                loading="lazy" />
+            </div>
+            <div class="p-6">
+              <p class="section-label mb-3">04</p>
+              <h3 class="text-xl font-bold">Soft Skills</h3>
+              <p class="muted text-sm leading-6 mt-3">Leadership, Problem Solving, Time Management, Communication,
+                Adaptability, Team Collaboration</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" data-section class="py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-7">
+        <div class="reveal">
+          <p class="section-label mb-2">Selected work</p>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Projects</h2>
+          <p class="muted mt-4 max-w-2xl">Projects built around application development, security, data integrity and
+            practical problem solving.</p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-2 gap-7">
+          <!-- Banking -->
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-60 rounded-none border-0 border-b relative">
+              <img src="assets/Blockchain.webp" alt="Banking and financial technology project"
+                class="w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-4 left-4 rounded-full px-3 py-1.5 text-xs font-bold text-white"
+                style="background:var(--accent)">
+                2026 · Blockchain
+              </span>
+            </div>
+
+            <div class="p-7 sm:p-8">
+              <h3 class="text-2xl font-extrabold leading-tight">Banking Credit Allocation Model Based On Blockchain
+                Technology</h3>
+              <p class="muted text-sm leading-6 mt-4">
+                Designed a decentralised credit-allocation platform leveraging blockchain technology to improve data
+                integrity and reduce the risk of tampering.
+              </p>
+
+              <ul class="mt-5 space-y-2 text-sm muted">
+                <li>• Secure data storage with role-based access and multi-layer authentication.</li>
+                <li>• Decentralised approach for stronger data integrity and controlled modification.</li>
+              </ul>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                <span class="tech-pill">Java</span>
+                <span class="tech-pill">Blockchain</span>
+                <span class="tech-pill">HTML/CSS</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">PostgreSQL</span>
+              </div>
+
+              <a href="https://github.com/rahulru-dev/Banking-Credit-Allocation-Model-Based-on-Blockchain-Technology"
+                target="_blank" rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 mt-7 orange-btn rounded-full px-5 py-3 text-sm font-bold">
+                View on GitHub →
+              </a>
+            </div>
+          </article>
+
+          <!-- QR -->
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-60 rounded-none border-0 border-b relative">
+              <img src="assets/QrCode.avif" alt="QR code and digital document verification project"
+                class="w-full h-full object-cover" loading="lazy" />
+              <span class="absolute top-4 left-4 rounded-full px-3 py-1.5 text-xs font-bold text-white"
+                style="background:var(--accent)">
+                2024 · Web App
+              </span>
+            </div>
+
+            <div class="p-7 sm:p-8">
+              <h3 class="text-2xl font-extrabold leading-tight">Efficient Traffic Fine Monitoring with QR Code
+                Technology</h3>
+              <p class="muted text-sm leading-6 mt-4">
+                Built a digital vehicle-document verification platform using QR technology to provide quick access to
+                protected document records.
+              </p>
+
+              <ul class="mt-5 space-y-2 text-sm muted">
+                <li>• Secure vehicle-document management with protected access controls.</li>
+                <li>• QR-based retrieval for fast document verification.</li>
+              </ul>
+
+              <div class="mt-6 flex flex-wrap gap-2">
+                <span class="tech-pill">Python</span>
+                <span class="tech-pill">HTML/CSS</span>
+                <span class="tech-pill">JavaScript</span>
+                <span class="tech-pill">MySQL</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERNSHIPS -->
+    <section id="internships" data-section class="section-surface border-y" style="border-color:var(--border)">
+      <div class="max-w-7xl mx-auto px-5 sm:px-7 py-24">
+        <div class="reveal">
+          <p class="section-label mb-2">Industry exposure</p>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Internship Experience</h2>
+          <p class="muted mt-4 max-w-2xl">Hands-on exposure to web development, application workflows, testing,
+            documentation and industry practices.</p>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-2 gap-7">
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-56 rounded-none border-0 border-b">
+              <img src="assets/codsoft.avif" alt="Web developer working on a laptop" class="w-full h-full object-cover"
+                loading="lazy" />
+            </div>
+            <div class="p-7 sm:p-8">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="section-label mb-2">2025</p>
+                  <h3 class="text-2xl font-extrabold">Web Developer Intern</h3>
+                  <p class="muted mt-1">CodSoft</p>
+                </div>
+                <span class="tech-pill">Web Development</span>
+              </div>
+              <ul class="mt-6 space-y-3 text-sm muted leading-6">
+                <li>• Built responsive web interfaces using HTML5, CSS3 and JavaScript.</li>
+                <li>• Worked on responsive front-end development with focus on UI design.</li>
+                <li>• Gained exposure to architectural review and development practices.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-56 rounded-none border-0 border-b">
+              <img src="assets/bharat_FIH.avif" alt="Application development team collaboration"
+                class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-7 sm:p-8">
+              <div class="flex items-start justify-between gap-4">
+                <div>
+                  <p class="section-label mb-2">2024</p>
+                  <h3 class="text-2xl font-extrabold">Application Developer Intern</h3>
+                  <p class="muted mt-1">Bharat FIH (Foxconn)</p>
+                </div>
+                <span class="tech-pill">Application Development</span>
+              </div>
+              <ul class="mt-6 space-y-3 text-sm muted leading-6">
+                <li>• Developed a responsive webpage portal using HTML, CSS, JavaScript and Bootstrap.</li>
+                <li>• Gained exposure to SDLC and technical writing.</li>
+                <li>• Learned about production workflows and industry operations.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" data-section class="py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-7 grid lg:grid-cols-[1.1fr_.9fr] gap-12 items-center">
+        <div class="reveal">
+          <p class="section-label mb-2">About me</p>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">A bit about who I am</h2>
+          <p class="muted leading-7 mt-6">
+            I’m a B.E Computer Science and Engineering graduate who enjoys turning ideas into practical software
+            solutions. With a strong foundation in Java, SQL, and web technologies, I can build application logic, work
+            with databases, and develop responsive interfaces. I enjoy understanding how a problem works and breaking it
+            down into simple, structured solutions.
+          </p>
+          <p class="muted leading-7 mt-4">
+            My interests are centered around software development, backend logic, database management, and building
+            real-world applications. I’m continuously exploring new technologies, strengthening my problem-solving
+            skills, and looking for opportunities where I can turn what I learn into meaningful software while growing
+            into a versatile developer.
+          </p>
+        </div>
+
+        <div class="reveal">
+          <div class="image-wrap rounded-[2rem] overflow-hidden max-w-md mx-auto">
+            <!-- Replace assets/profile.jpg with your own photo -->
+            <img src="assets/About Me.png"
+              onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=900&q=85'"
+              alt="Rahul R U" class="w-full aspect-[4/5] object-cover" loading="lazy" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education" data-section class="section-surface border-y" style="border-color:var(--border)">
+      <div class="max-w-7xl mx-auto px-5 sm:px-7 py-24">
+        <div class="reveal">
+          <p class="section-label mb-2">Academic background</p>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Education</h2>
+        </div>
+
+        <div class="mt-12 grid lg:grid-cols-3 gap-6">
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-56 rounded-none border-0 border-b">
+              <a href="https://panimalar.ac.in/" target="_blank" rel="noopener noreferrer">
+                <img src="assets/panimalar.jpeg" alt="Panimalar Engineering College"
+                  class="w-full h-full object-cover object-center" loading="lazy" />
+              </a>
+            </div>
+            <div class="p-6">
+              <p class="section-label">2022–2026</p>
+              <h3 class="text-xl font-bold mt-2">B.E. Computer Science and Engineering</h3>
+              <p class="muted text-sm mt-3">Panimalar Engineering College</p>
+              <p class="mt-4 font-bold">CGPA 7.77</p>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+
+            <div class="image-wrap h-56 rounded-none border-0 border-b">
+              <a href="https://www.sethubhaskara.co.in/" target="_blank" rel="noopener noreferrer"
+                class="block w-full h-full cursor-pointer">
+                <img src="assets/sethu_bhaskara.jpeg" alt="Sethu Bhaskara Matriculation Higher Secondary School"
+                  class="w-full h-full object-cover">
+              </a>
+            </div>
+            <div class="p-6">
+              <p class="section-label">2022</p>
+              <h3 class="text-xl font-bold mt-2">Higher Secondary — Computer Science (XII)</h3>
+              <p class="muted text-sm mt-3">Sethu Bhaskara Matriculation Higher Secondary School</p>
+              <p class="mt-4 font-bold">83.66%</p>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-56 rounded-none border-0 border-b">
+              <a href="https://www.sethubhaskara.co.in/" target="_blank" rel="noopener noreferrer"
+                class="block w-full h-full cursor-pointer">
+                <img src="assets/sethu_bhaskara.jpeg" alt="Sethu Bhaskara Matriculation Higher Secondary School"
+                  class="w-full h-full object-cover">
+              </a>
+            </div>
+            <div class="p-6">
+              <p class="section-label">2020</p>
+              <h3 class="text-xl font-bold mt-2">Secondary Education (X)</h3>
+              <p class="muted text-sm mt-3">Sethu Bhaskara Matriculation Higher Secondary School</p>
+              <p class="mt-4 font-bold">76.6%</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications" data-section class="py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-7">
+        <div class="reveal">
+          <p class="section-label mb-2">Credentials</p>
+          <h2 class="text-4xl sm:text-5xl font-extrabold tracking-tight">Certifications</h2>
+        </div>
+
+        <div class="mt-12 grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-40 rounded-none border-0 border-b">
+              <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80"
+                alt="Programming certification" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold leading-6">Programming in Java, Introduction to Python, Introduction to Data Science
+              </h3>
+              <p class="muted text-sm mt-3">Infosys Springboard</p>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-40 rounded-none border-0 border-b">
+              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=900&q=80"
+                alt="Automation and software development" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold leading-6">UiPath Automation Developer Associate Training</h3>
+              <p class="muted text-sm mt-3">NASSCOM</p>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-40 rounded-none border-0 border-b">
+              <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80"
+                alt="Cloud computing" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold leading-6">Google Cloud Computing Foundation</h3>
+              <p class="muted text-sm mt-3">NPTEL</p>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-40 rounded-none border-0 border-b">
+              <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=900&q=80"
+                alt="Generative AI technology" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold leading-6">Oracle Cloud Infrastructure Generative AI Certified Professional</h3>
+              <p class="muted text-sm mt-3">Oracle</p>
+            </div>
+          </article>
+
+          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+            <div class="image-wrap h-40 rounded-none border-0 border-b">
+              <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=900&q=80"
+                alt="Cybersecurity technology" class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6">
+              <h3 class="font-bold leading-6">Cybersecurity Fundamentals</h3>
+              <p class="muted text-sm mt-3">NASSCOM</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" data-section class="py-24">
+      <div class="max-w-7xl mx-auto px-5 sm:px-7">
+        <div class="rounded-[2rem] p-7 sm:p-10 lg:p-12 border overflow-hidden relative"
+          style="background:var(--card);border-color:var(--border)">
+          <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full blur-3xl pointer-events-none"
+            style="background:rgba(255,107,44,.10)"></div>
+
+          <div class="relative grid lg:grid-cols-2 gap-12">
+            <div class="reveal">
+              <p class="section-label mb-3">Get in touch</p>
+              <h2 class="text-4xl sm:text-5xl font-extrabold leading-tight">Let's connect.</h2>
+              <p class="muted max-w-lg leading-7 mt-5">
+                I'm open to entry-level software developer roles and relevant opportunities. If you have a role, project
+                or professional opportunity, feel free to reach out.
+              </p>
+
+              <div class="mt-8 space-y-4">
+                <a href="mailto:rahul.ravichandrann@gmail.com" class="flex items-center gap-4 group">
+                  <span
+                    class="w-11 h-11 rounded-xl flex items-center justify-center border transition group-hover:-translate-y-0.5"
+                    style="background:var(--accent-soft);border-color:var(--border);color:var(--accent)">✉</span>
+                  <span class="text-sm sm:text-base group-hover:underline">rahul.ravichandrann@gmail.com</span>
+                </a>
+
+                <a href="https://linkedin.com/in/rahul-r-u-02a1a2279" target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-4 group">
+                  <span
+                    class="w-11 h-11 rounded-xl flex items-center justify-center border transition group-hover:-translate-y-0.5"
+                    style="background:var(--accent-soft);border-color:var(--border);color:var(--accent)">in</span>
+                  <span class="text-sm sm:text-base group-hover:underline">linkedin.com/in/rahul-r-u-02a1a2279</span>
+                </a>
+
+                <a href="https://github.com/rahulru-dev" target="_blank" rel="noopener noreferrer"
+                  class="flex items-center gap-4 group">
+                  <span
+                    class="w-11 h-11 rounded-xl flex items-center justify-center border transition group-hover:-translate-y-0.5"
+                    style="background:var(--accent-soft);border-color:var(--border);color:var(--accent)">⌘</span>
+                  <span class="text-sm sm:text-base group-hover:underline">github.com/rahulru-dev</span>
+                </a>
+
+                <div class="flex items-center gap-4">
+                  <span class="w-11 h-11 rounded-xl flex items-center justify-center border"
+                    style="background:var(--accent-soft);border-color:var(--border);color:var(--accent)">⌖</span>
+                  <span class="text-sm sm:text-base">Chennai, Tamil Nadu</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="reveal">
+              <form id="contact-form" class="space-y-5">
+                <div class="grid sm:grid-cols-2 gap-5">
+                  <div>
+                    <label for="name" class="block text-sm font-semibold mb-2">Name *</label>
+                    <input id="name" name="name" type="text" required placeholder="Your name"
+                      class="w-full rounded-xl px-4 py-3.5 outline-none border transition focus:border-orange-500"
+                      style="background:var(--surface);border-color:var(--border);color:var(--text)" />
+                  </div>
+                  <div>
+                    <label for="email" class="block text-sm font-semibold mb-2">Email *</label>
+                    <input id="email" name="email" type="email" required placeholder="you@example.com"
+                      class="w-full rounded-xl px-4 py-3.5 outline-none border transition focus:border-orange-500"
+                      style="background:var(--surface);border-color:var(--border);color:var(--text)" />
+                  </div>
+                </div>
+
+                <div>
+                  <label for="subject" class="block text-sm font-semibold mb-2">Subject</label>
+                  <input id="subject" name="subject" type="text" placeholder="Job opportunity"
+                    class="w-full rounded-xl px-4 py-3.5 outline-none border transition focus:border-orange-500"
+                    style="background:var(--surface);border-color:var(--border);color:var(--text)" />
+                </div>
+
+                <div>
+                  <label for="message" class="block text-sm font-semibold mb-2">Message *</label>
+                  <textarea id="message" name="message" required rows="6" placeholder="Tell me about the opportunity..."
+                    class="w-full rounded-xl px-4 py-3.5 outline-none border transition focus:border-orange-500 resize-none"
+                    style="background:var(--surface);border-color:var(--border);color:var(--text)"></textarea>
+                </div>
+
+                <button id="send-button" type="submit" class="orange-btn w-full rounded-xl py-3.5 font-bold">
+                  Send Message →
+                </button>
+
+                <p id="form-status" class="text-sm text-center min-h-5 muted" aria-live="polite"></p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="border-t py-7 text-center text-sm muted" style="border-color:var(--border)">
+    © 2026 Rahul R U. All rights reserved.
+  </footer>
+
+  <div id="toast" class="toast fixed bottom-6 right-6 z-[60] max-w-sm rounded-2xl border px-5 py-4 shadow-2xl"
+    style="background:var(--card);border-color:var(--border)">
+    <p id="toast-text" class="text-sm font-semibold"></p>
+  </div>
+
+  <script>
+    // Theme
+    const themeToggle = document.getElementById("theme-toggle");
+    const themeIcon = document.getElementById("theme-icon");
+
+    function updateThemeIcon() {
+      const light = document.documentElement.classList.contains("light");
+      themeIcon.textContent = light ? "☾" : "☼";
+      themeToggle.setAttribute("aria-label", light ? "Switch to dark theme" : "Switch to light theme");
+    }
+
+    themeToggle.addEventListener("click", () => {
+      document.documentElement.classList.toggle("light");
+      const light = document.documentElement.classList.contains("light");
+      localStorage.setItem("portfolio-theme", light ? "light" : "dark");
+      updateThemeIcon();
+    });
+
+    updateThemeIcon();
+
+    // Mobile nav
+    const mobileToggle = document.getElementById("mobile-toggle");
+    const mobileNav = document.getElementById("mobile-nav");
+
+    mobileToggle.addEventListener("click", () => {
+      mobileNav.classList.toggle("hidden");
+      mobileNav.classList.toggle("flex");
+    });
+
+    document.querySelectorAll("#mobile-nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        mobileNav.classList.add("hidden");
+        mobileNav.classList.remove("flex");
+      });
+    });
+
+    // Active section scroll spy
+    const sections = [...document.querySelectorAll("[data-section]")];
+    const navButtons = [...document.querySelectorAll("[data-nav]")];
+
+    function setActive(id) {
+      navButtons.forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.nav === id);
+      });
+    }
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      const visible = entries
+        .filter(entry => entry.isIntersecting)
+        .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+      if (visible) setActive(visible.target.id);
+    }, {
+      rootMargin: "-18% 0px -58% 0px",
+      threshold: [0.05, 0.15, 0.3, 0.5]
+    });
+
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // Reveal animations
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+    // Contact form — automatic email delivery via FormSubmit
+    const form = document.getElementById("contact-form");
+    const sendButton = document.getElementById("send-button");
+    const formStatus = document.getElementById("form-status");
+
+    // Success popup
+    const successPopup = document.createElement("div");
+    successPopup.id = "success-popup";
+    successPopup.className = "fixed inset-0 z-[100] hidden items-center justify-center px-5";
+    successPopup.innerHTML = `
+      <div id="success-backdrop" class="absolute inset-0 bg-black/60 backdrop-blur-sm opacity-0 transition-opacity duration-500"></div>
+      <div id="success-card"
+           class="relative w-full max-w-md rounded-3xl border p-7 sm:p-8 text-center shadow-2xl opacity-0 translate-y-5 scale-95 transition-all duration-500"
+           style="background:var(--card);border-color:rgba(255,107,44,.35)">
+        <div class="mx-auto mb-5 w-14 h-14 rounded-full flex items-center justify-center text-2xl"
+             style="background:var(--accent-soft);color:var(--accent)">✓</div>
+        <h3 class="text-2xl font-extrabold" style="color:var(--text)">Message Delivered!</h3>
+        <p class="mt-2 text-sm leading-6" style="color:var(--muted)">
+          Your message has successfully reached me.<br>
+          I'll get back to you as soon as possible.
+        </p>
+        <button id="success-close" type="button"
+                class="mt-6 outline-btn rounded-full px-5 py-2.5 text-sm font-bold">
+          Done
+        </button>
+      </div>
+    `;
+    document.body.appendChild(successPopup);
+
+    function showSuccessPopup() {
+      const backdrop = document.getElementById("success-backdrop");
+      const card = document.getElementById("success-card");
+
+      successPopup.classList.remove("hidden");
+      successPopup.classList.add("flex");
+
+      requestAnimationFrame(() => {
+        backdrop.classList.remove("opacity-0");
+        backdrop.classList.add("opacity-100");
+        card.classList.remove("opacity-0", "translate-y-5", "scale-95");
+        card.classList.add("opacity-100", "translate-y-0", "scale-100");
+      });
+    }
+
+    function hideSuccessPopup() {
+      const backdrop = document.getElementById("success-backdrop");
+      const card = document.getElementById("success-card");
+
+      backdrop.classList.remove("opacity-100");
+      backdrop.classList.add("opacity-0");
+      card.classList.remove("opacity-100", "translate-y-0", "scale-100");
+      card.classList.add("opacity-0", "translate-y-5", "scale-95");
+
+      setTimeout(() => {
+        successPopup.classList.add("hidden");
+        successPopup.classList.remove("flex");
+      }, 500);
+    }
+
+    document.getElementById("success-close").addEventListener("click", hideSuccessPopup);
+    document.getElementById("success-backdrop").addEventListener("click", hideSuccessPopup);
+
+    form.addEventListener("submit", async function (event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const subject = document.getElementById("subject").value.trim() || "Portfolio Contact";
+      const message = document.getElementById("message").value.trim();
+
+      if (!name || !email || !message) {
+        formStatus.textContent = "Please fill in the required fields.";
+        formStatus.style.color = "#ef4444";
+        return;
+      }
+
+      sendButton.disabled = true;
+      sendButton.textContent = "Sending...";
+      formStatus.textContent = "";
+
+      try {
+        const response = await fetch(
+          "https://formsubmit.co/ajax/rahul.ravichandrann@gmail.com",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              subject: subject,
+              message: message,
+              _subject: "New Portfolio Contact — " + subject,
+              _replyto: email,
+              _captcha: "true",
+              _template: "table"
+            })
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok || result.success === false) {
+          throw new Error(result.message || "Message could not be delivered.");
+        }
+
+        form.reset();
+        formStatus.textContent = "";
+        showSuccessPopup();
+      } catch (error) {
+        console.error("Contact form error:", error);
+        formStatus.textContent =
+          "Unable to send the message right now. Please try again.";
+        formStatus.style.color = "#ef4444";
+      } finally {
+        sendButton.disabled = false;
+        sendButton.textContent = "Send Message →";
+      }
+    });
+
+    // Small toast helper
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      document.getElementById("toast-text").textContent = message;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 3500);
+    }
+  </script>
+</body>
+
+</html>
