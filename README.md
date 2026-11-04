@@ -12,7 +12,7 @@ Computer Science and Engineering Graduate · Chennai, Tamil Nadu
 
 ## 👋 About Me
 
-I am a Computer Science and Engineering graduate interested in **software development, full-stack application development, and building practical technology solutions**.
+I am a Computer Science and Engineering graduate interested in **Software Development, Full Stack Development, and building practical technology solutions**.
 
 I enjoy turning requirements into responsive, user-friendly applications and working across frontend interfaces, backend services, APIs, and databases.
 
