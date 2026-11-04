@@ -23,7 +23,7 @@ I am continuously strengthening my development and problem-solving skills while 
 | Category | Technologies and Skills |
 |---|---|
 | **Programming Languages** | Java, Python, JavaScript |
-| **Frontend Development** | HTML5, CSS3, React.js, Tailwind CSS |
+| **Frontend Development** | HTML5, CSS3, React.js |
 | **Backend Development** | Node.js, Express.js, REST APIs, Spring Boot (Basics) |
 | **Databases** | MongoDB, MySQL |
 | **Tools & Platforms** | Git, GitHub, VS Code, Eclipse IDE, Postman, MongoDB Compass, MySQL Workbench |
