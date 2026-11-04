@@ -53,7 +53,7 @@ A blockchain-based credit-allocation platform designed to improve data integrity
 - Incorporated secure data storage, role-based access, and multi-layer authentication.
 - Focused on controlled access and reliable credit-allocation records.
 
-**Tech Stack:** `Java` · `Blockchain` · `HTML` · `CSS` · `JavaScript` · `MySQL`
+**Tech Stack:** `Java` · `JavaServer Pages` · `HTML` · `CSS` · `JavaScript` · `MySQL`
 
 [View Project on GitHub](https://github.com/rahulru-dev/Banking-Credit-Allocation-Model-Based-on-Blockchain-Technology)
 
