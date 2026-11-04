@@ -115,8 +115,8 @@ A vehicle-document verification platform that uses QR technology to provide quic
 
 ## 📜 Certifications
 
-- Programming in Java
-- Introduction to Python
+- Programming in Java — Infosys Springboard
+- Introduction to Python — Infosys Springboard
 - Introduction to Data Science — Infosys Springboard
 - UiPath Automation Developer Associate Training — NASSCOM
 - Google Cloud Computing Foundation — NPTEL
