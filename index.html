@@ -216,6 +216,14 @@
       transition: .2s ease;
     }
 
+    /* Internship reference labels: slightly larger and kept on one line */
+    .internship-reference {
+      white-space: nowrap;
+      flex-shrink: 0;
+      padding: .5rem .85rem;
+      font-size: .8rem;
+    }
+
     .tech-pill:hover {
       color: var(--text);
       border-color: rgba(255, 107, 44, .5);
@@ -265,6 +273,109 @@
         display: none;
       }
     }
+
+    /* INTERNSHIP MANUAL HORIZONTAL SLIDER */
+    .internship-slider {
+      display: flex;
+      gap: 28px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 2px 22px;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+      cursor: grab;
+    }
+
+    .internship-slider:active {
+      cursor: grabbing;
+    }
+
+    .internship-slide {
+      flex: 0 0 46%;
+      min-width: 0;
+      scroll-snap-align: start;
+      opacity: .72;
+      transition: opacity .45s ease, transform .45s ease;
+    }
+
+    .internship-slide:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 767px) {
+      .internship-slider {
+        gap: 16px;
+      }
+
+      .internship-slide {
+        flex-basis: 82%;
+      }
+    }
+
+    /* PROJECT MANUAL HORIZONTAL SLIDER */
+    .project-slider {
+      display: flex;
+      gap: 28px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      padding: 0 2px 22px;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: var(--accent) transparent;
+      cursor: grab;
+    }
+
+    .project-slider:active {
+      cursor: grabbing;
+    }
+
+    .project-slide {
+      flex: 0 0 46%;
+      min-width: 0;
+      scroll-snap-align: start;
+      opacity: .72;
+      transition: opacity .45s ease, transform .45s ease;
+    }
+
+    .project-slide:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 767px) {
+      .project-slider {
+        gap: 16px;
+      }
+
+      .project-slide {
+        flex-basis: 82%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .project-slider {
+        scroll-behavior: auto;
+      }
+
+      .project-slide {
+        transition: none;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .internship-slider {
+        scroll-behavior: auto;
+      }
+
+      .internship-slide {
+        transition: none;
+      }
+    }
+
   </style>
 
   <script>
@@ -465,10 +576,10 @@
             practical problem solving.</p>
         </div>
 
-        <div class="mt-12 grid lg:grid-cols-2 gap-7">
+        <div class="project-slider mt-12" aria-label="Project cards">
 
           <!-- ISO Application -->
-           <article class="card pop-card rounded-3xl overflow-hidden reveal">
+           <article class="card pop-card rounded-3xl overflow-hidden project-slide">
             <div class="image-wrap h-60 rounded-none border-0 border-b relative">
               <img src="assets/ISO image.jpeg" alt="Quality check Application"
                 class="w-full h-full object-cover" loading="lazy" />
@@ -502,7 +613,7 @@
           </article>
 
           <!-- Banking -->
-          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+          <article class="card pop-card rounded-3xl overflow-hidden project-slide">
             <div class="image-wrap h-60 rounded-none border-0 border-b relative">
               <img src="assets/Blockchain.webp" alt="Banking and financial technology project"
                 class="w-full h-full object-cover" loading="lazy" />
@@ -542,7 +653,7 @@
           </article>
 
           <!-- QR -->
-          <article class="card pop-card rounded-3xl overflow-hidden reveal">
+          <article class="card pop-card rounded-3xl overflow-hidden project-slide">
             <div class="image-wrap h-60 rounded-none border-0 border-b relative">
               <img src="assets/QrCode.avif" alt="QR code and digital document verification project"
                 class="w-full h-full object-cover" loading="lazy" />
@@ -587,9 +698,9 @@
             documentation and industry practices.</p>
         </div>
 
-        <div class="mt-12 grid lg:grid-cols-2 gap-7">
-          <article class="card pop-card rounded-3xl overflow-hidden reveal">
-            <div class="image-wrap h-56 rounded-none border-0 border-b">
+        <div class="internship-slider mt-12" aria-label="Internship experience cards">
+          <article class="card pop-card rounded-3xl overflow-hidden internship-slide">
+            <div class="image-wrap h-60 rounded-none border-0 border-b">
               <img src="assets/Full Stack.jpg" alt="Full Stack Developement" class="w-full h-full object-cover"
                 loading="lazy" />
             </div>
@@ -600,7 +711,7 @@
                   <h3 class="text-2xl font-extrabold">Full Stack Developer Intern</h3>
                   <p class="muted mt-1">TEAMS Tech</p>
                 </div>
-                <span class="tech-pill">Full Stack Development</span>
+                <span class="tech-pill internship-reference">Full Stack Development</span>
               </div>
               <ul class="mt-6 space-y-3 text-sm muted leading-6">
                 <li>• Contributed to developing a manufacturing management application, digitizing project and quality management workflows.</li>
@@ -610,8 +721,8 @@
             </div>
           </article>
           
-          <article class="card pop-card rounded-3xl overflow-hidden reveal">
-            <div class="image-wrap h-56 rounded-none border-0 border-b">
+          <article class="card pop-card rounded-3xl overflow-hidden internship-slide">
+            <div class="image-wrap h-60 rounded-none border-0 border-b">
               <img src="assets/codsoft.avif" alt="Web developer working on a laptop" class="w-full h-full object-cover"
                 loading="lazy" />
             </div>
@@ -622,7 +733,7 @@
                   <h3 class="text-2xl font-extrabold">Web Developer Intern</h3>
                   <p class="muted mt-1">CodSoft</p>
                 </div>
-                <span class="tech-pill">Web Development</span>
+                <span class="tech-pill internship-reference">Web Development</span>
               </div>
               <ul class="mt-6 space-y-3 text-sm muted leading-6">
                 <li>• Built responsive web interfaces using HTML5, CSS3 and JavaScript.</li>
@@ -632,8 +743,8 @@
             </div>
           </article>
 
-          <article class="card pop-card rounded-3xl overflow-hidden reveal">
-            <div class="image-wrap h-56 rounded-none border-0 border-b">
+          <article class="card pop-card rounded-3xl overflow-hidden internship-slide">
+            <div class="image-wrap h-60 rounded-none border-0 border-b">
               <img src="assets/bharat_FIH.avif" alt="Application development team collaboration"
                 class="w-full h-full object-cover" loading="lazy" />
             </div>
@@ -644,7 +755,7 @@
                   <h3 class="text-2xl font-extrabold">Application Developer Intern</h3>
                   <p class="muted mt-1">Bharat FIH (Foxconn)</p>
                 </div>
-                <span class="tech-pill">Application Development</span>
+                <span class="tech-pill internship-reference">Application Development</span>
               </div>
               <ul class="mt-6 space-y-3 text-sm muted leading-6">
                 <li>• Developed a responsive webpage portal using HTML, CSS, JavaScript and Bootstrap.</li>
@@ -695,7 +806,7 @@
 
         <div class="mt-12 grid lg:grid-cols-3 gap-6">
           <article class="card pop-card rounded-3xl overflow-hidden reveal">
-            <div class="image-wrap h-56 rounded-none border-0 border-b">
+            <div class="image-wrap h-60 rounded-none border-0 border-b">
               <a href="https://panimalar.ac.in/" target="_blank" rel="noopener noreferrer">
                 <img src="assets/panimalar.jpeg" alt="Panimalar Engineering College"
                   class="w-full h-full object-cover object-center" loading="lazy" />
@@ -711,7 +822,7 @@
 
           <article class="card pop-card rounded-3xl overflow-hidden reveal">
 
-            <div class="image-wrap h-56 rounded-none border-0 border-b">
+            <div class="image-wrap h-60 rounded-none border-0 border-b">
               <a href="https://www.sethubhaskara.co.in/" target="_blank" rel="noopener noreferrer"
                 class="block w-full h-full cursor-pointer">
                 <img src="assets/sethu_bhaskara.jpeg" alt="Sethu Bhaskara Matriculation Higher Secondary School"
@@ -727,7 +838,7 @@
           </article>
 
           <article class="card pop-card rounded-3xl overflow-hidden reveal">
-            <div class="image-wrap h-56 rounded-none border-0 border-b">
+            <div class="image-wrap h-60 rounded-none border-0 border-b">
               <a href="https://www.sethubhaskara.co.in/" target="_blank" rel="noopener noreferrer"
                 class="block w-full h-full cursor-pointer">
                 <img src="assets/sethu_bhaskara.jpeg" alt="Sethu Bhaskara Matriculation Higher Secondary School"
@@ -1115,7 +1226,50 @@
       toast.classList.add("show");
       setTimeout(() => toast.classList.remove("show"), 3500);
     }
-  </script>
+  
+    // Internship cards: manual horizontal mouse drag
+    document.querySelectorAll(".internship-slider, .project-slider").forEach(slider => {
+      let isDragging = false;
+      let startX = 0;
+      let scrollStart = 0;
+      let moved = false;
+
+      slider.addEventListener("pointerdown", event => {
+        if (event.pointerType !== "mouse" || event.button !== 0) return;
+        isDragging = true;
+        moved = false;
+        startX = event.clientX;
+        scrollStart = slider.scrollLeft;
+        slider.classList.add("is-dragging");
+        slider.setPointerCapture(event.pointerId);
+      });
+
+      slider.addEventListener("pointermove", event => {
+        if (!isDragging) return;
+        const distance = event.clientX - startX;
+        if (Math.abs(distance) > 4) moved = true;
+        slider.scrollLeft = scrollStart - distance;
+      });
+
+      const stopDragging = () => {
+        isDragging = false;
+        slider.classList.remove("is-dragging");
+      };
+
+      slider.addEventListener("pointerup", stopDragging);
+      slider.addEventListener("pointercancel", stopDragging);
+      slider.addEventListener("lostpointercapture", stopDragging);
+
+      slider.addEventListener("click", event => {
+        if (moved) {
+          event.preventDefault();
+          event.stopPropagation();
+          moved = false;
+        }
+      }, true);
+    });
+
+</script>
 </body>
 
 </html>
