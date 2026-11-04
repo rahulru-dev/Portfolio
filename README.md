@@ -1,5 +1,5 @@
 
-# Rahul R U
+# RAHUL R U
 
 **Entry-Level Software Developer | Full Stack Developer**  
 Computer Science and Engineering Graduate · Chennai, Tamil Nadu
